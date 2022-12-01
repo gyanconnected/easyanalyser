@@ -12,13 +12,13 @@ export default function (props) {
     const UpperhandleOnClick = ()=>{
         let newText = text.toUpperCase(); 
         setText(newText);
-        props.showAlert("UpperCase", "success");
+        props.showAlert("Converted to UpperCase", "success");
     }
 
     const LowerhandleOnClick = ()=>{
         let newText = text.toLocaleLowerCase(); 
         setText(newText);
-        props.showAlert("LowerCase", "success");
+        props.showAlert("Converted to LowerCase", "success");
     }
 
     const ClearhandleOnClick = ()=>{
