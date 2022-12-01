@@ -12,15 +12,18 @@ export default function (props) {
     const UpperhandleOnClick = ()=>{
         let newText = text.toUpperCase(); 
         setText(newText);
+        props.showAlert("UpperCase", "success");
     }
 
     const LowerhandleOnClick = ()=>{
         let newText = text.toLocaleLowerCase(); 
         setText(newText);
+        props.showAlert("LowerCase", "success");
     }
 
     const ClearhandleOnClick = ()=>{
         setText('');
+        props.showAlert("Text Cleared", "success");
     }
 
     const CopyhandleOnClick = ()=>{
@@ -35,8 +38,7 @@ export default function (props) {
         // Copy the text inside the text field
         navigator.clipboard.writeText(copyText.value);
   
-        // Alert the copied text
-        alert("Copied the text: " + copyText.value);
+        props.showAlert("Copied the text: " + copyText.value, "success");
     }
 
   return (
@@ -59,6 +61,7 @@ export default function (props) {
 
     <div className="container my-3" style={{backgroundColor: props.mode==="light"?"white":"#042743", color: props.mode==="light"?"black":"white"}}>
         <h1>Your Text Summery</h1>
+
         <p>Words : <b>{text.split(" ").length}</b> ,Character : <b>{text.length}</b></p>
         <p>{text.split(" ").length *0.008} Minutes Read</p>
 
