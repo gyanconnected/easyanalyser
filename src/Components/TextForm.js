@@ -62,7 +62,11 @@ export default function (props) {
     <div className="container my-3" style={{backgroundColor: props.mode==="light"?"white":"#042743", color: props.mode==="light"?"black":"white"}}>
         <h1>Your Text Summery</h1>
 
-        <p>Words : <b>{text.split(" ").length}</b> ,Character : <b>{text.length}</b></p>
+        {text.length === 0?
+            <p>Words : <b>0</b> ,Character : <b>{text.length}</b></p> :
+        
+        <p>Words : <b>{text.split(" ").length}</b> ,Character : <b>{text.length}</b></p>}
+
         <p>{text.split(" ").length *0.008} Minutes Read</p>
 
         <h2>Preview</h2>
