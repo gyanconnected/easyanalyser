@@ -46,15 +46,14 @@ export default function (props) {
     <div>
         <div className="container" style={{backgroundColor: props.mode==="light"?"white":"#042743", color: props.mode==="light"?"black":"white"}}>
         {/* <label for="mybox" class="form-label">Enter your text below</label> */}
-            <h2>{props.heading}</h2>
-            <br/>
+            <h2 className="mb-2">{props.heading}</h2>
         <textarea className="form-control row-8" onChange={handleOnChange} value={text} id="mybox" style={{backgroundColor: props.mode==="light"?"white":"#042743", color: props.mode==="light"?"black":"white"}}></textarea>
         <br/>
         <div>
-        <button style={{backgroundColor:"#007bff", color:"white"}} className='btn-btn-primary' onClick={UpperhandleOnClick}>Convert to Uppercase</button>
-        <button style={{backgroundColor:"#007bff", color:"white"}} className='btn-btn-primary' onClick={LowerhandleOnClick}>Convert to Lowercase</button>
-        <button style={{backgroundColor:"#007bff", color:"white"}} className='btn-btn-primary' onClick={ClearhandleOnClick}>Clear</button>
-        <button style={{backgroundColor:"#007bff", color:"white"}} className='btn-btn-primary' onClick={CopyhandleOnClick}>Copy</button>
+        <button disabled={text.length===0}  className='btn-btn-primary mx-1 my-1' onClick={UpperhandleOnClick}>Convert to Uppercase</button>
+        <button disabled={text.length===0}  className='btn-btn-primary mx-1 my-1' onClick={LowerhandleOnClick}>Convert to Lowercase</button>
+        <button disabled={text.length===0}  className='btn-btn-primary mx-1 my-1' onClick={ClearhandleOnClick}>Clear</button>
+        <button disabled={text.length===0}  className='btn-btn-primary mx-1 my-1' onClick={CopyhandleOnClick}>Copy</button>
         </div>
         </div>
     </div>
@@ -62,16 +61,15 @@ export default function (props) {
     <div className="container my-3" style={{backgroundColor: props.mode==="light"?"white":"#042743", color: props.mode==="light"?"black":"white"}}>
         <h1>Your Text Summery</h1>
 
-        {text.length === 0?
-            <p>Words : <b>0</b> ,Character : <b>{text.length}</b></p> :
-        
-        <p>Words : <b>{text.split(" ").length}</b> ,Character : <b>{text.length}</b></p>}
+       
+        <p>Words : <b>{text.split(" ").filter((e)=>{return e.length != 0}).length}</b> ,Character : <b>{text.length}</b></p>
 
-        <p>{text.split(" ").length *0.008} Minutes Read</p>
+        <p>{text.split(" ").filter((e)=>{return e.length != 0}).length *0.008} Minutes Read</p>
 
         <h2>Preview</h2>
-        <p>{text.length>0?text:"Enter something in the textbox above to preview it here.."}</p>
+        <p>{text.length>0?text:"Nothing to preview!"}</p>
     </div>
+    
     </>
 
   )

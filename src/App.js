@@ -1,9 +1,12 @@
 import './App.css';
-// import About from './Components/About';
+import About from './Components/About';
 import Navbar from './Components/Navbar';
 import TextForm from './Components/TextForm'
 import Alert from './Components/Alert'
+import { BrowserRouter as Router, Route, Routes, Navigate } from "react-router-dom";
+
 import { useState } from 'react';
+
 
 
 function App() {
@@ -43,12 +46,22 @@ function App() {
 
   return (
     <>
-      <Navbar title="EasyAnalyser" mode={mode} togglemode={togglemode}/>
+
+      
+<Navbar title="EasyAnalyser" mode={mode} togglemode={togglemode}/>
       <Alert alert={alert}/>
-  <TextForm heading="Enter the text to analyze below" mode={mode} showAlert={showAlert}/>
-{/* <About/> */}
+
+<Router>
+      <Routes>
+        <Route path="/About" element={<About mode={mode} />} />
+        <Route path="/" element={<TextForm heading="Enter the text to analyze below" mode={mode} showAlert={showAlert}/>} />
+      </Routes>
+      </Router>
+
+    
+      
     </>
   );
-}
+};
 
 export default App;
