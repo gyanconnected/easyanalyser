@@ -62,7 +62,7 @@ export default function (props) {
         <h1>Your Text Summery</h1>
 
        
-        <p>Words : <b>{text.split(" ").filter((e)=>{return e.length != 0}).length}</b> ,Character : <b>{text.length}</b></p>
+        <p>Words : <b>{text.split(/\s+/).filter((e)=>{return e.length != 0}).length}</b> ,Character : <b>{text.length}</b></p>
 
         <p>{text.split(" ").filter((e)=>{return e.length != 0}).length *0.008} Minutes Read</p>
 
