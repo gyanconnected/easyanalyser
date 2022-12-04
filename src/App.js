@@ -3,6 +3,7 @@ import About from './Components/About';
 import Navbar from './Components/Navbar';
 import TextForm from './Components/TextForm'
 import Alert from './Components/Alert'
+import Footer from './Components/Footer'
 import { BrowserRouter as Router, Route, Routes, Navigate } from "react-router-dom";
 
 import { useState } from 'react';
@@ -58,7 +59,7 @@ function App() {
       </Routes>
       </Router>
 
-    
+    <Footer/>
       
     </>
   );
